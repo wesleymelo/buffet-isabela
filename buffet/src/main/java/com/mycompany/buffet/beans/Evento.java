@@ -87,6 +87,7 @@ public class Evento implements Serializable {
     private Character eveSnMesaGuloseima;
     @Column(name = "eve_sn_nome_fachada")
     private Character eveSnNomeFachada;
+    
     @JoinTable(name = "evento_has_produto", joinColumns = {
         @JoinColumn(name = "evento_eve_cod", referencedColumnName = "eve_cod")}, inverseJoinColumns = {
         @JoinColumn(name = "produto_prod_cod", referencedColumnName = "prod_cod")})
