@@ -3,7 +3,16 @@
   <persistence-unit name="expressoPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>expressoPU</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <class>com.mycompany.buffet.beans.Aniversariante</class>
+    <class>com.mycompany.buffet.beans.Cliente</class>
+    <class>com.mycompany.buffet.beans.Endereco</class>
+    <class>com.mycompany.buffet.beans.Evento</class>
+    <class>com.mycompany.buffet.beans.Fornecedor</class>
+    <class>com.mycompany.buffet.beans.Login</class>
+    <class>com.mycompany.buffet.beans.Produto</class>
+    <class>com.mycompany.buffet.beans.TipoFornecedor</class>
+    <class>com.mycompany.buffet.beans.TipoProduto</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
