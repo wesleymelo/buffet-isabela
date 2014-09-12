@@ -3,6 +3,9 @@ import com.mycompany.buffet.beans.Produto;
 import com.mycompany.buffet.dao.ProdutoDAO;
 import com.mycompany.buffet.util.PersistenceUtil;
 import java.math.BigDecimal;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,10 +24,17 @@ public class Main {
      */
     public static void main(String[] args) {
         Produto produto = new Produto(1L, "Bolo de Fubá", new BigDecimal("130.99"));
-        
-        ProdutoDAO dao = new ProdutoDAO(PersistenceUtil.getEntityManager());
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("expressoPU");
+        EntityManager em = emf.createEntityManager();
+                
+        ProdutoDAO dao = new ProdutoDAO(em);
         
         dao.save(produto);
+        
+        em.close();
+        emf.close();
+
     }
     
 }
